@@ -1,0 +1,232 @@
+:root {
+    /* Heartopia Soft Pastel & Cozy Crimson Color Coordinates */
+    --bg-main: #fff0f3;
+    --grid-pink: rgba(255, 182, 193, 0.25);
+    --card-bg: rgba(255, 255, 255, 0.92);
+    --card-border: rgba(255, 143, 164, 0.4);
+    --primary-pink: #ff5c8a;
+    --primary-hover: #ff477e;
+    --text-main: #4a2834;
+    --text-muted: #85626e;
+    --shadow-blur: 0 12px 40px rgba(255, 92, 138, 0.2);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    /* Heartopia Signature Grid & Polka Intersection Grid Pattern */
+    background-image: 
+        linear-gradient(var(--grid-pink) 2px, transparent 2px),
+        linear-gradient(90deg, var(--grid-pink) 2px, transparent 2px),
+        radial-gradient(rgba(255, 92, 138, 0.15) 15%, transparent 16%);
+    background-size: 40px 40px, 40px 40px, 20px 20px;
+    background-position: 0 0, 0 0, 10px 10px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden !important; /* Nilock nito ang screen para bawal magka-scrollbar */
+    position: relative;
+}
+
+.music-control {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 10px 14px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: background 0.3s;
+}
+.music-control:hover { background: rgba(255, 255, 255, 1); }
+
+.heart-particle {
+    position: absolute;
+    color: rgba(255, 92, 138, 0.35);
+    font-size: 20px;
+    pointer-events: none;
+    animation: floatUp 6s linear infinite;
+    bottom: -50px;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.7; }
+    90% { opacity: 0.7; }
+    100% { transform: translateY(-105vh) rotate(360deg); opacity: 0; }
+}
+
+.container {
+    width: 90%;
+    max-width: 440px;
+    z-index: 10;
+}
+
+/* Glassmorphic Cozy Dashboard Window Card Upgrades */
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 3px dashed var(--card-border); /* Heartopia Style Stitching Look */
+    border-radius: 28px;
+    padding: 40px 28px;
+    box-shadow: var(--shadow-blur);
+    text-align: center;
+    display: none;
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.card.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.card-emoji { font-size: 50px; margin-bottom: 10px; }
+h2 { color: var(--primary-pink); font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+.sub-text { color: var(--text-muted); font-size: 15px; margin-bottom: 25px; }
+
+.btn-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+    min-height: 80px;
+    position: relative;
+}
+
+.btn {
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.15s ease-out;
+}
+
+.btn-yes {
+    background: linear-gradient(135deg, #ff5c8a, #ff7096);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 92, 138, 0.3);
+    z-index: 2;
+}
+
+.btn-no {
+    background: #e9ecef;
+    color: #495057;
+    z-index: 1;
+}
+
+/* Structural Size Preservation Rules for the Evasive Viewport Bound State */
+.btn-no.running {
+    position: fixed !important;
+    z-index: 99999 !important;
+    min-width: 120px; 
+    min-height: 45px;
+    box-shadow: 0 10px 25px rgba(255, 92, 138, 0.35);
+    pointer-events: auto;
+    margin: 0 !important; /* Safe tracking offset normalization parameter */
+    transition: left 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.15), 
+                top 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+}
+
+.dress-badge {
+    background: rgba(255, 92, 138, 0.1);
+    color: var(--primary-pink);
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group { text-align: left; margin-bottom: 20px; }
+label { display: block; color: var(--text-main); margin-bottom: 6px; font-size: 13px; font-weight: 600; text-transform: uppercase; }
+
+select, input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid rgba(255, 143, 164, 0.3);
+    border-radius: 12px;
+    font-size: 15px;
+    outline: none;
+    background: white;
+    color: var(--text-main);
+}
+select:focus, input:focus { border-color: var(--primary-pink); }
+
+.btn-submit { background: linear-gradient(135deg, #ff5c8a, #ff7096); color: white; width: 100%; }
+
+.btn-calendar {
+    display: inline-block;
+    background: #4285f4;
+    color: white;
+    text-decoration: none;
+    margin-top: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+.countdown-container { background: rgba(255, 255, 255, 0.6); border-radius: 15px; padding: 15px; margin: 20px 0; border: 1px dashed var(--card-border); }
+#countdown-timer { font-size: 24px; font-weight: 700; color: var(--primary-pink); }
+
+/* Splash Screen Overlay System Rules */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--bg-main);
+    background-image: 
+        linear-gradient(var(--grid-pink) 2px, transparent 2px),
+        linear-gradient(90deg, var(--grid-pink) 2px, transparent 2px),
+        radial-gradient(rgba(255, 92, 138, 0.15) 15%, transparent 16%);
+    background-size: 40px 40px, 40px 40px, 20px 20px;
+    background-position: 0 0, 0 0, 10px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    transition: opacity 0.4s ease;
+}
+
+.splash-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 3px dashed var(--card-border);
+    border-radius: 28px;
+    padding: 40px 28px;
+    box-shadow: var(--shadow-blur);
+    text-align: center;
+    width: 90%;
+    max-width: 410px;
+}
+
+.splash-emoji {
+    font-size: 60px;
+    margin-bottom: 15px;
+    animation: heartbeat 1.4s infinite ease-in-out;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.12); }
+    60% { transform: scale(1); }
+}
